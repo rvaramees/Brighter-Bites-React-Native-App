@@ -1,16 +1,24 @@
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
-import authRoutes from './routes/authRoutes.js';  
-import { connectDB } from './config/db.js';
+import express from 'express'; // Import express for creating the server
+import cors from 'cors'; // Import CORS for handling cross-origin requests
+import 'dotenv/config'; // Import environment variables
+import authRoutes from './routes/authRoutes.js';  // Import authentication routes
+import parentRoutes from './routes/parentRoutes.js'; // Import parent routes 
+import childRoutes from './routes/childRoutes.js'; // Import child routes
+import homeRoutes from './routes/homeRoutes.js'; // Import home routes
+
+import { connectDB } from './config/db.js'; // Import database connection function
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
-
 app.use("/api/auth", authRoutes);
+app.use("/api/parent", parentRoutes);
+app.use("/api/children", childRoutes);
+app.use("/api/home", homeRoutes);
+
+
 
 
 app.listen(PORT, () => {

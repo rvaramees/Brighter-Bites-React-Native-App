@@ -18,10 +18,6 @@ const parentSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
-  phoneNumber: {
-    type: String,
-    required: true,
-  },
   // children: [
   //   {
   //     type: mongoose.Schema.Types.ObjectId,

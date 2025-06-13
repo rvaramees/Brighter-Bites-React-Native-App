@@ -8,14 +8,14 @@ import generateToken from "../../utils/generateToken.js";
 const registerUser = async (req, res) => {
   try{
     console.log("Received registration request with data:", req.body);
-    const { email, parentname, password, phoneNumber } = req.body;
+    const { email, parentname, password } = req.body;
     // Log the request body for debugging
 
     
     console.log("Received registration request with data:", req.body);
     // Validate input
     // Check if all fields are provided
-    if (!parentname || !email || !password || !phoneNumber) {
+    if (!parentname || !email || !password ) {
       return res.status(400).json(
         { message: "All fields are required" }
       );
@@ -33,11 +33,6 @@ const registerUser = async (req, res) => {
       );
     }
     // Check if phone number is in valid format
-    if(phoneNumber.length < 10) {
-      return res.status(400).json(
-        { message: "Phone number must be at least 10 characters long" }
-      );
-    }
     // Check if email is in valid format
     // Simple regex for email validation
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -66,7 +61,6 @@ const registerUser = async (req, res) => {
       parentname,
       email,
       password,
-      phoneNumber
     });
 
     // Save the parent to the database
@@ -81,7 +75,6 @@ const registerUser = async (req, res) => {
         id: parent._id,
         parentname: parent.parentname,
         email: parent.email,
-        phoneNumber: parent.phoneNumber
       }
     });
   }

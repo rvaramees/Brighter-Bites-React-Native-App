@@ -1,3 +1,5 @@
+import Child from "../../models/child";
+
 export const getMyChildren = async (req, res) => {
   try {
     // 1. The `authorize('parent')` middleware has already run.

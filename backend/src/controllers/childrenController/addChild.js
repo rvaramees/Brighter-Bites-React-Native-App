@@ -1,4 +1,4 @@
-import Child from '../models/child.model.js';
+import Child from "../../models/child.js";
 
 // @desc    Add a new child under the currently logged-in parent
 // @route   POST /api/children/add
