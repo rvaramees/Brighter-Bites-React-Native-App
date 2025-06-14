@@ -1,4 +1,5 @@
-import Child from "../../models/child.js";
+import Child from "../../models/childModel.js";
+import Parent from "../../models/parentModel.js";
 
 // @desc    Add a new child under the currently logged-in parent
 // @route   POST /api/children/add
@@ -9,7 +10,13 @@ export const addChild = async (req, res) => {
 
   // The `authorize('parent')` middleware has already run.
   const parentId = req.user._id;
-  const parentName = req.user.name;
+  const parentEmail = req.user.email; // Assuming parentEmail is stored in req.user
+  const userType = req.user.type; // Assuming userType is stored in req.user
+  const parentName = req.user.parentname; // Assuming parentname is stored in req.user
+  // console.log('parentId:', parentId);
+  // console.log('parentname:', parentName);
+  // console.log('userType:', userType);
+  // console.log('parentEmail:', parentEmail);
 
   // Basic validation
   if (!name || !age || !gender || !password) {
@@ -34,6 +41,7 @@ export const addChild = async (req, res) => {
       preferences,
       parent: parentId,
       parentName: parentName,
+      points: 0 // Default points for a new child
     });
 
     if (child) {
@@ -44,7 +52,8 @@ export const addChild = async (req, res) => {
         age: child.age,
         gender: child.gender, // <-- Return gender in the response
         avatar: child.avatar,
-        preferences: child.preferences,
+        preferences: child.preferences.morningBrushTime,
+        parentId: child.parent,
         parentName: child.parentName,
         message: `'${child.name}' has been successfully added to your family!`
       });

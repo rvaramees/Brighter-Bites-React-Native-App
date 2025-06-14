@@ -1,4 +1,4 @@
-import Child from "../../models/child";
+import Child from "../../models/childModel.js";
 
 export const getMyChildren = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import Parent from '../../models/Parent.js';
+import Parent from '../../models/parentModel.js';
 import generateToken from '../../utils/generateToken.js';
 
 const loginUser = async (req, res) => {
@@ -26,15 +26,15 @@ const loginUser = async (req, res) => {
         // Generate JWT token
         const token = generateToken(parent._id, 'parent');
         console.log("Generated token for parent:", token);
-
+        const parentname = parent.parentname; // Fallback to 'Parent' if parentname is not set
         // Respond with the token and parent details
         return res.status(200).json({
             token,
-            parent: {
-                id: parent._id,
-                parentname: parent.parentname,
+            user: {
+                _id: parent._id,
+                name: parentname,
                 email: parent.email,
-                phoneNumber: parent.phoneNumber,
+                type: 'parent',
             }
         });
     } catch (error) {

@@ -3,7 +3,7 @@ import cors from 'cors'; // Import CORS for handling cross-origin requests
 import 'dotenv/config'; // Import environment variables
 import authRoutes from './routes/authRoutes.js';  // Import authentication routes
 import parentRoutes from './routes/parentRoutes.js'; // Import parent routes 
-import childRoutes from './routes/childRoutes.js'; // Import child routes
+import childrenRoutes from './routes/childrenRoutes.js'; // Import child routes
 import homeRoutes from './routes/homeRoutes.js'; // Import home routes
 
 import { connectDB } from './config/db.js'; // Import database connection function
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use("/api/auth", authRoutes);
 app.use("/api/parent", parentRoutes);
-app.use("/api/children", childRoutes);
+app.use("/api/children", childrenRoutes);
 app.use("/api/home", homeRoutes);
 
 

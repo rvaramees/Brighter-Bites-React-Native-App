@@ -1,5 +1,5 @@
 import router from "../../routes/authRoutes.js";
-import Parent from "../../models/Parent.js";
+import Parent from "../../models/parentModel.js";
 import generateToken from "../../utils/generateToken.js";
 
 

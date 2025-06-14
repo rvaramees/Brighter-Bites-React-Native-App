@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import Parent from '../models/parent.model.js';
-import Child from '../models/child.model.js';
+import Parent from '../models/parentModel.js';
+import Child from '../models/childModel.js';
 
 /**
  * Middleware to protect routes and authorize based on user type.
@@ -17,7 +17,10 @@ export const authorize = (...allowedTypes) => {
       try {
         // 1. Get token from header
         token = req.headers.authorization.split(' ')[1];
-
+        console.log('Token received:', token);
+        if (!token) {
+          return res.status(401).json({ message: 'Not authorized, no token' });
+        }
         // 2. Verify token and get payload
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
