@@ -1,12 +1,12 @@
-// Example placeholder for ChildrenListScreen.tsx
+// Example placeholder for AddChildScreen.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const ChildrenListScreen = () => {
+const AddChildScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Children List Screen</Text>
+      <Text>Add Child</Text>
     </View>
   );
 };
-export default ChildrenListScreen;
+export default AddChildScreen;

@@ -78,6 +78,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await SecureStore.deleteItemAsync('token');
       await SecureStore.deleteItemAsync('user');
       setAuthState({ token: null, authenticated: false, user: null });
+      console.log("Logouted successfully");
     } catch (e) {
       console.error("Failed to clear auth state", e);
     }

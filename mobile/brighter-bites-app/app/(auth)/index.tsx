@@ -1,6 +1,6 @@
 // app/index.tsx
-import LoginScreen from '../src/screens/LoginScreen';
+import IntroScreen from '../../src/screens/IntroScreen';
 
 // Expo Router will render the component exported as default from this file
 // for the '/' route.
-export default LoginScreen;
+export default IntroScreen;

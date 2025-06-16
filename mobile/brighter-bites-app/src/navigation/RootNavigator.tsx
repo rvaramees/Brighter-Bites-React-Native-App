@@ -13,7 +13,7 @@ import AuthScreen from '../screens/AuthScreen';     // Your existing screen with
 import LoginScreen from '../screens/LoginScreen';   // The screen with the login form
 import RegisterScreen from '../screens/RegisterScreen'; // The screen with the register form
 import ParentTabNavigator from './ParentTabNavigator';
-import ChildDashboardScreen from '../screens/child/ChildDashboard';
+import ChildDashboardScreen from '../screens/child/ChildDashboardScreen';
 
 /**
  * This is the stack for when a user is NOT authenticated.
