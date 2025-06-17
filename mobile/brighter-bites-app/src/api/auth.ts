@@ -1,5 +1,7 @@
 import apiClient from './apiClient';
 import { 
+  ChildLoginCredentials,
+         ChildLoginResponse,
          ParentLoginCredentials,
          ParentLoginResponse, 
          ParentRegisterCredentials, 
@@ -30,3 +32,13 @@ export const loginParent = async (credentials: ParentLoginCredentials): Promise<
     throw error;
   }
 };
+
+export const loginChild = async (credentials: ChildLoginCredentials): Promise<ChildLoginResponse> => {
+  try{
+    const response = await apiClient.post<ChildLoginResponse>('/auth/child/login', credentials);
+    return response.data;
+  } catch(error: any) {
+    console.log('Child Login API Error', error.response?.data || error.message);
+    throw error;
+  }
+}

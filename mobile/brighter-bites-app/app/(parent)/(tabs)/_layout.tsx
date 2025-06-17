@@ -1,11 +1,17 @@
 import React from 'react';
-import { Tabs } from 'expo-router';
+import { Tabs, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../../src/hooks/useAuth'; // Adjust path
 import { TouchableOpacity } from 'react-native';
 
 export default function ParentTabsLayout() {
   const { logout } = useAuth(); // Example of using logout in the header
+  const router = useRouter();
+
+  const onHandleLogout = async () => {
+    await logout();
+    router.replace('/(auth)/login');
+  }
 
   return (
     <Tabs
@@ -36,7 +42,7 @@ export default function ParentTabsLayout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="cog-outline" size={size} color={color} />,
           // You can even add a logout button to the header like this
           headerRight: () => (
-            <TouchableOpacity onPress={logout} style={{ marginRight: 15 }}>
+            <TouchableOpacity onPress={onHandleLogout} style={{ marginRight: 15 }}>
               <Ionicons name="log-out-outline" size={24} color="#fff" />
             </TouchableOpacity>
           ),

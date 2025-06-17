@@ -5,12 +5,15 @@ export const getMyChildren = async (req, res) => {
     // 1. The `authorize('parent')` middleware has already run.
     // We can reliably get the parent's ID from req.user.
     const parentId = req.user._id;
+    console.log(parentId);
 
     // 2. Find all children in the database where the 'parent' field matches the ID.
     // We use .select() to exclude the password and other sensitive/unnecessary fields.
     const children = await Child.find({ parent: parentId }).select(
-      'name age gender avatar points preferences'
+      '_id name age avatar points'
     );
+
+    console.log(children);
     
     // 3. Send the response.
     // If the parent has no children, this will correctly return an empty array [].

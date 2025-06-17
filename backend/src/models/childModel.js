@@ -24,6 +24,7 @@ const childSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please provide a simple password"],
       minlength: 4,
+      maxlength: 4,
       select: false,
     },
     avatar: {

@@ -12,6 +12,7 @@ import {
 import React, { useState } from 'react';
 import { loginParent } from '../api/auth'; // Import your API function
 import { useAuth } from '../hooks/useAuth'; // Custom hook to access auth context
+import { router } from 'expo-router';
 
 const LoginScreen = () => {
   const { login } = useAuth(); // Get the login function from context
@@ -45,6 +46,10 @@ const LoginScreen = () => {
     }
   };
 
+  const back = () => {
+    router.replace('/(auth)/auth');
+  }
+
   return (
     <View className="flex-1 justify-center p-6">
       <Text className="text-3xl font-bold mb-6">Parent Login</Text>
@@ -74,6 +79,17 @@ const LoginScreen = () => {
           {isLoading ? 'Logging In...' : 'Login'}
         </Text>
       </TouchableOpacity>
+
+    <TouchableOpacity
+        className={`p-4 rounded-lg items-center  bg-blue-500 mt-4`}
+        onPress={back}
+      >
+        <Text className="text-white font-bold text-lg">
+          Go back
+        </Text>
+      </TouchableOpacity>
+      
+
     </View>
   );
 };
