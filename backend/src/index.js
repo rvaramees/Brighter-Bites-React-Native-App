@@ -5,6 +5,8 @@ import authRoutes from './routes/authRoutes.js';  // Import authentication route
 import parentRoutes from './routes/parentRoutes.js'; // Import parent routes 
 import childrenRoutes from './routes/childrenRoutes.js'; // Import child routes
 import homeRoutes from './routes/homeRoutes.js'; // Import home routes
+import taskRoutes from './routes/taskRoutes.js'; //Import task routes
+import habitRoutes from './routes/habitRouter.js' // Import habit routes
 
 import { connectDB } from './config/db.js'; // Import database connection function
 
@@ -17,6 +19,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/parent", parentRoutes);
 app.use("/api/children", childrenRoutes);
 app.use("/api/home", homeRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/habit", habitRoutes);
+
+
 
 
 

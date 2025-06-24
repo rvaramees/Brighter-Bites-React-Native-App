@@ -17,13 +17,13 @@ export const authorize = (...allowedTypes) => {
       try {
         // 1. Get token from header
         token = req.headers.authorization.split(' ')[1];
+        console.log(req.headers);
         console.log('Token received:', token);
         if (!token) {
           return res.status(401).json({ message: 'Not authorized, no token' });
         }
         // 2. Verify token and get payload
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
         // 3. Check if the token's type is one of the allowed types
         if (allowedTypes.length > 0 && !allowedTypes.includes(decoded.type)) {
           return res.status(403).json({ message: 'Forbidden: You do not have the required permissions' });

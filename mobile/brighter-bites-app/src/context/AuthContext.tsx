@@ -45,6 +45,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const loadUserFromStorage = async () => {
       try {
         const token = await SecureStore.getItemAsync('token');
+        console.log(token);
         const userString = await SecureStore.getItemAsync('user');
 
         if (token && userString) {
@@ -54,6 +55,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             user: JSON.parse(userString),
             isInitializing: false
           });
+          // console.log(authState);
         } else {
           setAuthState({ token: null, authenticated: false, user: null, isInitializing: false });
         }
@@ -81,8 +83,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await SecureStore.setItemAsync('token', token);
       await SecureStore.setItemAsync('user', JSON.stringify(user));
       setAuthState({ token, authenticated: true, user, isInitializing: false });
-      console.log(user);
-      console.log(token);
     } catch (e) {
       console.error("Failed to save auth state", e);
     }
