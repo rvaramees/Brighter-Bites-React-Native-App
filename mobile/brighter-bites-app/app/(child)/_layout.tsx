@@ -21,9 +21,9 @@ export default function ChildAppLayout() {
   // Render the screens inside the (child) group.
   return (
     <Stack>
-      <Stack.Screen name='start' options={{headerShown: false}}/>
-      <Stack.Screen name="index" options={{ title: 'My Dashboard' }} />
+      <Stack.Screen name="index" options={{ title: 'Start', headerShown: false }} />
       <Stack.Screen name="settings" options={{ title: 'My Settings' }} />
+      <Stack.Screen name="dashboard" options={{ title: 'My Dashboard', headerShown: false }} />
     </Stack>
   );
 }

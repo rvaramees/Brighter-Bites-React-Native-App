@@ -1,5 +1,6 @@
-import ChildDashboardScreen from "@/src/screens/child/ChildDashboardScreen";
+import React from "react";
+import ChildStartScreen from "@/src/screens/child/ChildStartScreen";
 
-export default function ChildDashboardPage() {
-    return <ChildDashboardScreen/>
+export default function ChildStartPage() {
+    return <ChildStartScreen />;
 }

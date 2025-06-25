@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 import { loginParent } from '../api/auth'; // Import your API function
 import { useAuth } from '../hooks/useAuth'; // Custom hook to access auth context
 import { router } from 'expo-router';
+import { Input } from '../components/ui/Input';
 
 const LoginScreen = () => {
   const { login } = useAuth(); // Get the login function from context
@@ -54,20 +55,19 @@ const LoginScreen = () => {
     <View className="flex-1 justify-center p-6">
       <Text className="text-3xl font-bold mb-6">Parent Login</Text>
       
-      <TextInput
-        className="bg-gray-200 p-4 rounded-lg mb-4"
+      <Input
+
+        label='Email'
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
       />
-      <TextInput
-        className="bg-gray-200 p-4 rounded-lg mb-4"
+      <Input
+        label='Password'
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
-        secureTextEntry
+        secureTextEntry={true}
       />
 
       <TouchableOpacity

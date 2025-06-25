@@ -55,7 +55,7 @@ const ChildDashboardScreen = () => {
 
   if (loading || !todaysRecord) {
     return (
-      <View className="flex-1 justify-center items-center bg-emerald-50">
+      <View className="flex-1 justify-center items-center bg-cyan-50">
         <ActivityIndicator size="large" color="#10B981" />
         <Text className="mt-4 text-gray-500">Loading your mission...</Text>
       </View>
@@ -73,26 +73,26 @@ const ChildDashboardScreen = () => {
   console.log(allTasks);
 
   return (
-    <View className="flex-1 items-center justify-center bg-emerald-50 p-5">
+    <View className="flex-1 items-center bg-green-700 w-full mt-10">
+       <View className="w-full rounded-3xl   flex-row items-center bg-blue-200 justify-center h-36 mb-5  border border-gray-300">
        <TouchableOpacity
               onPress={() => router.push('/(child)/settings')}
-              className="absolute top-16 right-5 z-10" // Adjust top-16 as needed for safe area
+              className="absolute right-5 z-10" // Adjust top-16 as needed for safe area
             >
-              <View className="bg-white/80 p-3 rounded-full shadow-md backdrop-blur-sm">
+              <View className="bg-white/80 p-2 rounded-full shadow-md backdrop-blur-sm">
                 <Ionicons name="settings-outline" size={28} color="#059669" />
               </View>
             </TouchableOpacity>
-      <Text className="text-3xl font-bold text-emerald-700 mb-2">
+      <Text className="text-3xl font-bold text-emerald-700">
         Hi, {authState.user?.name}!
       </Text>
-      <Text className="text-xl text-gray-600 mb-10">
-        Ready to make your teeth sparkle?
-      </Text>
 
-      {/* Main game area placeholder */}
-      <View className="w-full h-1/2 bg-white rounded-2xl shadow-lg justify-center items-center p-4">
-        <Text className="text-lg text-gray-500">Your brushing game will be here!</Text>
       </View>
+
+      <View className='w-11/12 h-4/6 mx-2 border-2 border-black rounded-lg shadow-lg shadow-black/20'>
+
+      </View>
+      <View className='w-full rounded-3xl bg-blue-800 h-full mt-5'></View>
 
       {/* The Mission Modal */}
       <MissionModal
@@ -106,6 +106,7 @@ const ChildDashboardScreen = () => {
           renderItem={({ item }) => <TaskItem name={item.name} status={item.status} />}
         />
       </MissionModal>
+
     </View>
   );
 };
