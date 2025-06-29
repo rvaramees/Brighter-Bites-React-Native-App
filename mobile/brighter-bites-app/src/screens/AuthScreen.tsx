@@ -13,9 +13,9 @@ const AuthScreen = () => {
       className="flex-1"
     >
       
-    <View className="flex-1 items-center py-56">
+    <View className="flex-1 items-center py-32 sm:py-40">
       <View 
-        className='flex-1 shadow-black items-center justify-center h-auto w-96 rounded-xl'
+        className='flex-1 shadow-black items-center justify-center h-1/2 w-96 rounded-xl'
       >
       <BlurView 
         intensity={0}

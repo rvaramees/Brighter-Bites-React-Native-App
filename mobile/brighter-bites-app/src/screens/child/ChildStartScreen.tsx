@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '../../hooks/useAuth'; // Custom hook to access auth context
-import Animated, { BounceIn, FadeIn, FadeOut } from 'react-native-reanimated';
+import Animated, { BounceIn, FadeIn, FadeOut,  } from 'react-native-reanimated';
 
 const ChildStartScreen = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const ChildStartScreen = () => {
   const handleStart = () => {
     // Navigate to the main dashboard (the index of the (child) tabs/stack)
     // `replace` is used to prevent the user from going "back" to this start screen.
-    router.replace('/(child)/dashboard'); 
+    router.replace('/(child)/(tabs)'); 
   };
 
   return (
@@ -26,7 +26,7 @@ const ChildStartScreen = () => {
           resizeMode="contain"
         />
       </Animated.View>
-      <Animated.View entering={BounceIn.delay(500).duration(800)} className="items-center mb-20">
+      <Animated.View entering={BounceIn.delay(500).duration(800)} className="items-center mb-11 ">
         <Text className="text-2xl text-cyan-700">Welcome back,</Text>
         <Text className="text-5xl font-extrabold text-cyan-800 ">
           {authState.user?.name}!
@@ -34,7 +34,7 @@ const ChildStartScreen = () => {
       </Animated.View>
 
       {/* Start Button Section */}
-      <Animated.View entering={BounceIn.delay(500).duration(800)} className="w-full">
+      <Animated.View entering={BounceIn.delay(500).duration(800)} className="w-full pb-24">
         <TouchableOpacity
           onPress={handleStart}
           className="bg-white/0 rounded-full items-center shadow-lg shadow-black w-1/4 mx-auto"

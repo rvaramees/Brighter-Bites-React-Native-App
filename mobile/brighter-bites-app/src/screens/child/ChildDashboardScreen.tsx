@@ -89,10 +89,9 @@ const ChildDashboardScreen = () => {
 
       </View>
 
-      <View className='w-11/12 h-4/6 mx-2 border-2 border-black rounded-lg shadow-lg shadow-black/20'>
+      <View className='w-11/12 h-4/6 mx-2 border-2 border-black rounded-lg'>
 
       </View>
-      <View className='w-full rounded-3xl bg-blue-800 h-full mt-5'></View>
 
       {/* The Mission Modal */}
       <MissionModal

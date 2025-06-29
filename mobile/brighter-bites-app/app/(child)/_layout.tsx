@@ -22,8 +22,10 @@ export default function ChildAppLayout() {
   return (
     <Stack>
       <Stack.Screen name="index" options={{ title: 'Start', headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{
+        headerShown: false, 
+      }}/> {/* This refers to the entire tab navigator */}
       <Stack.Screen name="settings" options={{ title: 'My Settings' }} />
-      <Stack.Screen name="dashboard" options={{ title: 'My Dashboard', headerShown: false }} />
     </Stack>
   );
 }

@@ -51,7 +51,7 @@ const ChildLoginScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-cyan-50">
-      <View className="flex-1 justify-center p-6">
+      <View className="flex-1 justify-start py-16 px-6">
         
         {/* Playful Header */}
         <View className="items-center mb-10">
