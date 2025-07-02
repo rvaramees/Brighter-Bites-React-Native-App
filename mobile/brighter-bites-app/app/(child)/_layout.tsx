@@ -26,6 +26,7 @@ export default function ChildAppLayout() {
         headerShown: false, 
       }}/> {/* This refers to the entire tab navigator */}
       <Stack.Screen name="settings" options={{ title: 'My Settings' }} />
+      <Stack.Screen name="brushTimer" options={{ title: 'Brush Timer', headerShown: false }} />
     </Stack>
   );
 }
