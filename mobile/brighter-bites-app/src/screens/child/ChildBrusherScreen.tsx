@@ -3,30 +3,21 @@ import React, { useState } from 'react'
 import { Video, ResizeMode } from 'expo-av';  
 import LottieView from 'lottie-react-native';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
-import Demo from '@/src/components/ui/SkiaSpriteAnimator';
-import { WebView } from 'react-native-webview';
-import { router } from 'expo-router';
-import { transform } from '@babel/core';
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Camera, CameraView, useCameraPermissions } from 'expo-camera';
-import * as FaceDetector from 'expo-face-detector';
 import Mirror from '@/src/components/ui/Mirror';
+import BrusherStars from '@/src/components/ui/brusherStar';
 
 const CARD_WIDTH = 150;
 const CARD_HEIGHT = 220;
 
-
-
-
-
 const ChildBrusherScreen = () => {
   const [isCameraActive, setIsCameraActive] = useState(false);
+  const [isStars, setIsStars] = useState(false);
 
   // The handler for the main control button lives in the parent.
   const handleToggleCamera = () => {
     // This function simply flips the boolean state.
     setIsCameraActive(prevState => !prevState);
+    setIsStars(prevState => !prevState);
   };
 
   const scale = useSharedValue(1);
@@ -94,18 +85,19 @@ const ChildBrusherScreen = () => {
           // Pass a function that allows the child to change the parent's state.
           onDeactivate={() => setIsCameraActive(false)}></Mirror>
       
-      {/* } */}
 
        
       </Animated.View>
       </View>
-
+      <View className='h-16 mb-4'>
+        <BrusherStars isActive={isStars} />
+      </View>
       <TouchableOpacity
         onPress={async () => {
           await handlePress();
           await handleToggleCamera();
         }}
-        className="bg-indigo-600 py-4 px-8 rounded-full shadow-lg mt-16"
+        className="bg-indigo-600 py-4 px-8 rounded-full shadow-lg "
       >
         <Text className="text-white text-xl font-bold">Start Brushing</Text>
       </TouchableOpacity>
