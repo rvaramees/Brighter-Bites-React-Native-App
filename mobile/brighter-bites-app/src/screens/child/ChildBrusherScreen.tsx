@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, Image, Touchable, TouchableOpacity, SafeAreaView, Alert, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, Image, Touchable, TouchableOpacity, SafeAreaView, Alert, ActivityIndicator, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import { Video, ResizeMode } from 'expo-av';  
 import LottieView from 'lottie-react-native';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import Mirror from '@/src/components/ui/Mirror';
 import BrusherStars from '@/src/components/ui/brusherStar';
+import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
 
 const CARD_WIDTH = 150;
 const CARD_HEIGHT = 220;
@@ -60,7 +61,23 @@ const ChildBrusherScreen = () => {
     
   };
   return (
-      <SafeAreaView className="flex-1 bg-gray-100 justify-center items-center">
+        <ImageBackground 
+        source={require('@/assets/images/brusherImage.png')} 
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+        }}
+        imageStyle={
+          isCameraActive ?
+          {
+          opacity: 0.7
+        }:{
+          opacity:1
+        }}
+        className='flex-1 items-center justify-center'
+        >
+      <SafeAreaView className="flex-1 justify-center items-center">
       {/* 
         This outer container now defines the "anchor box" for our animation.
         The card starts in the top-left of this box.
@@ -102,6 +119,7 @@ const ChildBrusherScreen = () => {
         <Text className="text-white text-xl font-bold">Start Brushing</Text>
       </TouchableOpacity>
     </SafeAreaView>
+      </ImageBackground>
   )
 }
 

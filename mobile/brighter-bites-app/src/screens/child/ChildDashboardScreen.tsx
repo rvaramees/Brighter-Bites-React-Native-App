@@ -5,6 +5,7 @@ import { getTodaysTasksApi } from '../../api/tasks'; // Assuming you create this
 import MissionModal from '../../components/ui/MissionModal'; // Import our new modal
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
+import PlayerInfo from '@/src/components/ui/playerInfo';
 
 // Interface to match the DailyRecord schema from the backend
 interface DailyRecord {
@@ -74,20 +75,7 @@ const ChildDashboardScreen = () => {
 
   return (
     <View className="flex-1 items-center bg-green-700 w-full mt-10">
-       <View className="w-full rounded-3xl   flex-row items-center bg-blue-200 justify-center h-36 mb-5  border border-gray-300">
-       <TouchableOpacity
-              onPress={() => router.push('/(child)/settings')}
-              className="absolute right-5 z-10" // Adjust top-16 as needed for safe area
-            >
-              <View className="bg-white/80 p-2 rounded-full shadow-md backdrop-blur-sm">
-                <Ionicons name="settings-outline" size={28} color="#059669" />
-              </View>
-            </TouchableOpacity>
-      <Text className="text-3xl font-bold text-emerald-700">
-        Hi, {authState.user?.name}!
-      </Text>
-
-      </View>
+       <PlayerInfo />
 
       <View className='w-11/12 h-4/6 mx-2 border-2 border-black rounded-lg'>
 
