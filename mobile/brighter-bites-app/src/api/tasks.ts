@@ -14,6 +14,13 @@ export interface DailyRecord {
   starCount: number;
 }
 
+// Define Calendar Data
+export interface DailyRecordForCalendar {
+  date: string; // ISO date string
+  starCount: number;
+  challengeCompleted: boolean;
+}
+
 /**
  * Fetches the daily record for the currently logged-in child.
  * @param token - The child's JWT.
@@ -22,6 +29,13 @@ export interface DailyRecord {
 export const getTodaysTasksApi = async (token: string): Promise<DailyRecord> => {
   const response = await apiClient.get('/tasks/today', {
     headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
+export const getCalendarDataApi = async (token: string): Promise<DailyRecordForCalendar[]> => {
+  const response = await apiClient.get('/tasks/calendar', {
+    headers: { Authorization: `Bearer ${token}` }
   });
   return response.data;
 };

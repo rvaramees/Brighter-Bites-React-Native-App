@@ -8,6 +8,7 @@ interface User {
   name: string;
   email?: string;
   username?: string;
+  points?: number;
   type: 'parent' | 'child';
 }
 

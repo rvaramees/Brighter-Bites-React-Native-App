@@ -40,6 +40,7 @@ export interface ChildLoginResponse {
     _id: string;
     name: string;
     type: 'child';
+    points: number;
   };
   token: string;
 }
